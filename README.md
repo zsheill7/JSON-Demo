@@ -20,7 +20,29 @@ api.openweathermap.org/data/2.5/weather?q={city name},{country code}
 
 <p><img src="images1/apikey.png" alt="api"></p>
 
-<p>Next, create a new project.   I named my project "JSONDemo".  Open up MainActivity.java and enter the following code:</p>
+<p>Next, create a new project.   I named my project "JSONDemo".  Open up MainActivity.java and enter the following code:
+
+It's generally a good idea to run code that might take a while on a different thread than the main thread.  In this case, we'll be using AsyncTask to run code on a background thread.  
+
+AsyncTask takes variables of type String, Void, and String.  The 1st variable (String) instructs the class what to do.  In this case, we'll be sending DownloadTask a URL to download.  This will be our call to the Open Weather Map API.
+
+The 2nd variable (Void) is the name of the method to show the progress of the task.  We won't be using that today, though.  
+
+The 3rd variable is the variable that will be returned.  
+
+The "protected" keyword means the function can be accessed anywhere in the package, not just the class. 
+
+The "String.... params" is more or less an array of Strings.
+
+First, we'll create an empty string to store our results.  Then, we'll create an empty URL to store our URL, and an empty urlConnection to store the urlConnection.  
+
+Then, we'll take the first url given to us from our argument, the (String... urls) up top.  This could fail if it's not a valid URL, so we need to surround it with try/catch.  
+
+Then, we'll set up a urlConnection with our url.  Again, this could fail, so we add a catch clause to our try/catch. 
+
+Then, we add an InputStreamReader to read our input stream. 
+
+Let's create a variable data that will read the data from the URL.  We will read each character from the data and append it to results.  </p>
 
 ```
 public class DownloadTask extends AsyncTask<String, Void, String> {
@@ -28,6 +50,12 @@ public class DownloadTask extends AsyncTask<String, Void, String> {
         @Override
         protected String doInBackground(String... urls) {
 
+            
+        }
+```
+
+
+```
             String result = "";
             URL url;
             HttpURLConnection urlConnection = null;
@@ -62,8 +90,8 @@ public class DownloadTask extends AsyncTask<String, Void, String> {
             }
 
             return null;
-        }
 ```
+
 
 <p></p>
 
@@ -112,6 +140,7 @@ public class DownloadTask extends AsyncTask<String, Void, String> {
 <p>This is where you'll be using the url and API Key you found earlier. Fill in the url below with the city and country code of the place you want to find weather info for and input your API Key after.
 "http://api.openweathermap.org/data/2.5/weather?q=[CITY],[COUNTRY CODE]&&APPID=[YOUR API KEY] </p>
 
+<p>We first create a new instance of DownloadTask. We can then execute it using the API call.</p>
 ```
 @Override
     protected void onCreate(Bundle savedInstanceState) {
