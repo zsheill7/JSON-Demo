@@ -97,15 +97,12 @@ Let's create a variable data that will read the data from the URL.  We will read
 ```
 
 
-<p></p>
+<p>Now, we need to create a jsonObject created from the result string.  If the result string is empty or there is a problem with the JSON, this code will fail, so we need to surround this with try/catch.  Once we have our jsonObject, we can extract particular parts from it.  We can use jsonObject.getString("weather") to extract the weather part of the JSON Object instead of extracting all the data the JSON gives us.  
 
-```
+To obtain more specific information, we first create a JSONArray from the weather info.  We loop through the array and convert each of the items in the array and make a new jsonObject from that part.  </p>
 
-```
 
-```
 
-```
 
 ```
 @Override
@@ -145,6 +142,7 @@ Let's create a variable data that will read the data from the URL.  We will read
 "http://api.openweathermap.org/data/2.5/weather?q=[CITY],[COUNTRY CODE]&&APPID=[YOUR API KEY] </p>
 
 <p>We first create a new instance of DownloadTask. We can then execute it using the API call.</p>
+
 ```
 @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -170,6 +168,7 @@ Let's create a variable data that will read the data from the URL.  We will read
 ```
 
 <p>Complete code for MainActivity.class is below:</p>
+
 
 ```
 package com.example.zoe.jsondemo;
