@@ -33,16 +33,7 @@ The 3rd variable is the variable that will be returned.
 The "protected" keyword means the function can be accessed anywhere in the package, not just the class. 
 
 The "String.... params" is more or less an array of Strings.
-
-First, we'll create an empty string to store our results.  Then, we'll create an empty URL to store our URL, and an empty urlConnection to store the urlConnection.  
-
-Then, we'll take the first url given to us from our argument, the (String... urls) up top.  This could fail if it's not a valid URL, so we need to surround it with try/catch.  
-
-Then, we'll set up a urlConnection with our url.  Again, this could fail, so we add a catch clause to our try/catch. 
-
-Then, we add an InputStreamReader to read our input stream. 
-
-Let's create a variable data that will read the data from the URL.  We will read each character from the data and append it to results.  </p>
+</p>
 
 ```
 public class DownloadTask extends AsyncTask<String, Void, String> {
@@ -53,6 +44,19 @@ public class DownloadTask extends AsyncTask<String, Void, String> {
             
         }
 ```
+
+<p>
+First, we'll create an empty string to store our results.  Then, we'll create an empty URL to store our URL, and an empty urlConnection to store the urlConnection.  
+
+Then, we'll take the first url given to us from our argument, the (String... urls) up top.  This could fail if it's not a valid URL, so we need to surround it with try/catch.  
+
+Then, we'll set up a urlConnection with our url.  Again, this could fail, so we add a catch clause to our try/catch. 
+
+Then, we add an InputStreamReader to read our input stream. 
+
+Let's create a variable data that will read the data from the URL.  We will read each character from the data and append it to results.  </p>
+
+
 
 
 ```
