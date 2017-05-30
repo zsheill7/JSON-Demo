@@ -2,24 +2,34 @@
 
 <p>JSON, or Javascript Object Notation, is a format for structuring data.  It lets you send data to and retrive data from a web application.  In this tutorial, we will learn how to retrieve weather data from any location around the world.</p>
 
-
+<br>
+<br>
 
 
 <img src="images1/log.png" alt="api">
 
-
+<br>
+<br>
 <p>First, go to <a>https://openweathermap.org/api</a>.  There are several options you can choose from, including 5 day forecasts, but today we'll find current weather data.  Click on "API doc"</p>
+<br>
+<br>
 <img src="images1/openweather.png" alt="api">
+<br>
+<br>
 <p>Copy the API call </p>
 api.openweathermap.org/data/2.5/weather?q={city name},{country code}
 <p></p>
 
 <img src="images1/apicall.png" alt="api">
+<br>
+<br>
 
 <p>Next, create an account with OpenWeatherMap to create your own API key.  After you've created an account, go to the "API keys" tab and find your API Key. </p>
-
+<br>
+<br>
 <p><img src="images1/apikey.png" alt="api"></p>
-
+<br>
+<br>
 <p>Next, create a new project.   I named my project "JSONDemo".  Open up MainActivity.java and enter the following code:
 
 It's generally a good idea to run code that might take a while on a different thread than the main thread.  In this case, we'll be using AsyncTask to run code on a background thread.  
@@ -46,6 +56,8 @@ public class DownloadTask extends AsyncTask<String, Void, String> {
 ```
 
 <p>
+<br>
+<br>
 First, we'll create an empty string to store our results.  Then, we'll create an empty URL to store our URL, and an empty urlConnection to store the urlConnection.  
 
 Then, we'll take the first url given to us from our argument, the (String... urls) up top.  This could fail if it's not a valid URL, so we need to surround it with try/catch.  
@@ -96,6 +108,8 @@ Let's create a variable data that will read the data from the URL.  We will read
             return null;
 ```
 
+<br>
+<h1></h1>
 
 <p>Now, we need to create a jsonObject created from the result string.  If the result string is empty or there is a problem with the JSON, this code will fail, so we need to surround this with try/catch.  Once we have our jsonObject, we can extract particular parts from it.  We can use jsonObject.getString("weather") to extract the weather part of the JSON Object instead of extracting all the data the JSON gives us.  
 
@@ -137,7 +151,7 @@ To obtain more specific information, we first create a JSONArray from the weathe
 
         }
 ```
-
+<h1></h1>
 <p>This is where you'll be using the url and API Key you found earlier. Fill in the url below with the city and country code of the place you want to find weather info for and input your API Key after.
 "http://api.openweathermap.org/data/2.5/weather?q=[CITY],[COUNTRY CODE]&&APPID=[YOUR API KEY] </p>
 
@@ -163,9 +177,7 @@ To obtain more specific information, we first create a JSONArray from the weathe
 
 <p></p>
 
-```
-
-```
+<h1></h1>
 
 <p>Complete code for MainActivity.class is below:</p>
 
