@@ -293,7 +293,7 @@ public class MainActivity extends Activity {
 
 ```
 
-<p></p>
+<p>Congratulations!  You've successfully downloaded JSON data from the web!</p>
 
 
 <img src="images1/thumbsup.png" width="400" alt="api">
